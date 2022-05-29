@@ -1,5 +1,7 @@
 package Recursion.Hard;
 
+import java.util.Arrays;
+
 public class mColouringProblem {
 
     private static boolean isSafe(int node , int[][] G,int[] color,int n,int currColor){
@@ -21,7 +23,7 @@ public class mColouringProblem {
 
         //we try to color all the nodes with every possible color
         for(int i=1;i<=m;i++){
-            if(isSafe(node , G,color,n,i)){
+            if(isSafe(node , G,color,n,i)==true){
                 color[node] = i;//color the node
                 //make a recursive call for the next node
                 if(solve(node+1,G,color,n,m) == true) return true;
@@ -43,6 +45,7 @@ public class mColouringProblem {
         int color[] = new int[G.length];
 
         int N = G.length;
+        System.out.println(N);
         int M = 2;
        boolean result =  solve(0,G,color,N,M) ;
         System.out.println(result);
