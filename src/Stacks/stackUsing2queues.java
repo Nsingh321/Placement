@@ -28,6 +28,8 @@ public class stackUsing2queues {
     }
 
     private static int pop(){
+
+        if(q1.isEmpty()) return -1;
         //while popping from queue , it is not queue it has elements like in stack
         int popped = q1.remove();
         return popped;
