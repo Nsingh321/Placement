@@ -16,6 +16,7 @@ public class stackUsing1queue {
         for (int i = 0; i < q.size()-1; i++) {
             q.add(q.peek());
             q.remove();
+
         }
     }
 
