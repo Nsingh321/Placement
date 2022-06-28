@@ -22,9 +22,9 @@ public class validBrackets {
                 //stack is not empty and there may be a closing bracket
                 //take the top element of stack(ch)(also remove it) and compare with the character of string(c)
                 char ch = stack.peek();
-                stack.pop(); // remove from the stack
+
                 if((c == ')' && ch == '(') || (c == ']' && ch == '[') || (c == '}' && ch == '{')){
-                    continue;
+                    stack.pop(); // remove from the stack
                 }
                 else{
                     return false;
