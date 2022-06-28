@@ -14,7 +14,7 @@ public class pge {
         int n = a.length;
         int pge[] = new int[a.length];
 
-//        iterating from backwards just double the size of array(because array is circular)
+//        iterating forward just double the size of array(because array is circular)
         for (int i = 0; i <=2*n-1 ; i++) {
 
             while(!stack.isEmpty() && stack.peek() <= a[i%n]){
