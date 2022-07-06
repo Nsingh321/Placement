@@ -23,7 +23,7 @@ public class MAH {
         Stack<Pair> stack = new Stack<>();
         int n = a.length;
         int nsrIndex[] = new int[n];
-        int pseudoIndex = 7;
+        int pseudoIndex = n;
 
         for (int i = n-1; i >=0 ; i--) {
 
@@ -86,6 +86,7 @@ public class MAH {
     public static void main(String[] args) {
 
         int a[] = {6,2,5,4,5,1,6};
+       // int a[] = {2,4};
         mah(a);
 
     }
