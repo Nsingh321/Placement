@@ -2,10 +2,10 @@ package Trees;
 
 import java.util.ArrayList;
 
-
 //TC = O(N)
 //SC = O(N)
-public class preOrderTraversal {
+
+public class postOrderTraversal {
 
     static class Node{
         int data;
@@ -18,18 +18,19 @@ public class preOrderTraversal {
         }
     }
 
-    //preOrder = Root , Left , Right
-    static void preOrderTrav(Node curr , ArrayList<Integer> preOrder){
+   // post order traversal = left,right,node
+    static void postOrderTrav(Node curr , ArrayList<Integer> postOrder){
 
         //base case
         if(curr == null){
             return;
         }
 
-        preOrder.add(curr.data);
-        preOrderTrav(curr.left,preOrder);
-        preOrderTrav(curr.right,preOrder);
+        postOrderTrav(curr.left,postOrder);
+        postOrderTrav(curr.right,postOrder);
+        postOrder.add(curr.data);
     }
+
 
     public static void main(String[] args) {
         Node root = new Node(1);
@@ -37,20 +38,18 @@ public class preOrderTraversal {
         root.right = new Node(3);
         root.left.left = new Node(4);
         root.left.right = new Node(5);
-        root.left.right.left = new Node(8);
-        root.right.left = new Node(6);
-        root.right.right = new Node(7);
+        root.left.right.left = new Node(6);
+        root.right.left = new Node(7);
+        root.right.right = new Node(8);
         root.right.right.left = new Node(9);
         root.right.right.right = new Node(10);
 
-        ArrayList<Integer> preOrder = new ArrayList<>();
-        preOrderTrav(root,preOrder);
-
-        System.out.println("The Preorder Traversal is :");
-        for (int i = 0; i < preOrder.size(); i++) {
-            System.out.print(preOrder.get(i)+" ");
+        ArrayList<Integer> postOrder = new ArrayList<>();
+        postOrderTrav(root,postOrder);
+        System.out.println("Post Order Traversal: ");
+        for (int i = 0; i < postOrder.size(); i++) {
+            System.out.print(postOrder.get(i)+" ");
         }
 
     }
-
 }
