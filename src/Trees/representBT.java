@@ -1,16 +1,18 @@
 package Trees;
 
-class Node {
-
-    int data;
-    Node left , right;
-    public Node(int key){
-        data = key;
-    }
-}
-
 
 public class representBT {
+
+    static class Node {
+
+        int data;
+        Node left , right;
+        public Node(int key){
+            data = key;
+        }
+    }
+
+
 
     Node root; //root node
 
