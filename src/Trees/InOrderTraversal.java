@@ -1,6 +1,8 @@
 package Trees;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 //TC = O(N)
 //SC = O(N)
@@ -31,6 +33,8 @@ public class InOrderTraversal {
     }
 
 
+
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -50,6 +54,10 @@ public class InOrderTraversal {
         for(int i=0;i<inorder.size();i++){
             System.out.print(inorder.get(i)+" ");
         }
+
+
+
+
 
     }
 }
