@@ -31,6 +31,9 @@ public class maxHeightOfBT {
         root.right.left = new Node(15);
         root.right.right = new Node(7);
 
+        int height = maxHeightOfBT(root);
+        System.out.println(height);
+
 
     }
 }
