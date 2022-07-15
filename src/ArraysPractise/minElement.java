@@ -8,6 +8,7 @@ public class minElement {
         int arr[] = {2,5,1,3,0};
 
         Arrays.sort(arr);
-        System.out.println(arr[0]);//element at 0th index is the shortest
+        System.out.println("Smallest Element is "+arr[0]);//element at 0th index is the shortest
+        System.out.println("Largest Element is " + arr[arr.length-1]);
     }
 }
