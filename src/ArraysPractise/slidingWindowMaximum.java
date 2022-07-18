@@ -22,6 +22,7 @@ public class slidingWindowMaximum {
             }
             q.offer(i);//add current index in deque
             if(i >= k-1){
+                // add the resultant element in the array r[] when we reach at the end of the windows k
                 r[ri++] = nums[q.peek()];
             }
         }
