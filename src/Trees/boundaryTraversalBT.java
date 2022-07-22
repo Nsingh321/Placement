@@ -14,7 +14,7 @@ public class boundaryTraversalBT {
         }
     }
 
-    //check is a node is left or not
+    //check if a node is left or not
     private static boolean isLeafNode(Node curr){
         if(curr.left == null && curr.right == null) return true;
         else return false;
