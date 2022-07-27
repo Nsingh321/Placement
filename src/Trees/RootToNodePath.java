@@ -42,8 +42,9 @@ public class RootToNodePath {
 
 
         ArrayList<Integer> arr = new ArrayList<>();
-        int x = 13;
+        int x = 7;
         System.out.println((getPath(root , arr,x)));
+        System.out.println(arr);
 
 
     }
