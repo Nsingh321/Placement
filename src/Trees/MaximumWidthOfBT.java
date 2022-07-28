@@ -39,7 +39,7 @@ public class MaximumWidthOfBT {
             int mmin = q.peek().index;    //to make the id starting from zero
             int first = 0,last = 0;
             for(int i=0; i<size; i++){
-                int cur_id = q.peek().index-mmin;
+                int cur_id = q.peek().index-mmin;//to prevent overflow
                 Node node = q.peek().node;
                 q.poll();
                 if(i==0) first = cur_id;
