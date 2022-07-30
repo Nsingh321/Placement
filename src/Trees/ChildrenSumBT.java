@@ -15,7 +15,7 @@ public class ChildrenSumBT {
     }
 
     private static void changeTree(Node root){
-        if(root == null) return;
+        if(root == null) return;//base case
         int child = 0; //at any node, computes the sum of left and right child
 
         if(root.left != null) child = child + root.left.data;
