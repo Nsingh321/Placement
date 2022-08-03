@@ -18,13 +18,21 @@ public class countTotalNodeCompleteBT {
         if(root == null) return 0; //no of nodes is 0
 
         int left = getHeightLeft(root);
+        System.out.println(left);
         int right = getHeightRight(root);
+        System.out.println(right);
 
         //If left and right are equal it means that the tree is complete and hence go for 2^h -1.
         if(left == right) return ((2<<(left))-1);//(2^H)-1
 
         //else recursively calculate the number of nodes in left and right and add 1 for root.
-        else return countNodes(root.left) + countNodes(root.right) + 1;
+        else {
+            int goLeft = countNodes(root.left);
+            System.out.println(goLeft);
+            int goRight = countNodes(root.right);
+            System.out.println(goRight);
+            return goLeft + goRight + 1;
+        }
     }
 
     private static int getHeightLeft(Node root){
@@ -59,6 +67,8 @@ public class countTotalNodeCompleteBT {
         root.right.right = new Node(7);
 
         System.out.println(countNodes(root));
+        //System.out.println(getHeightLeft(root.left));
+
 
 
     }
