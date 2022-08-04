@@ -1,9 +1,8 @@
 package Trees;
 
-//TC = O(N)
-//SC = O(N)-> HashMap
+//TC - O(N) -> Tree Traversal
+//SC = O(N) -> HashMap
 import java.util.HashMap;
-import java.util.Map;
 
 public class BTfromInorderAndPostOrder {
 
@@ -16,41 +15,51 @@ public class BTfromInorderAndPostOrder {
         }
     }
 
-    private static Node builtTree(int[] preOrder , int[] inOrder){
-        Map<Integer , Integer> inMap = new HashMap<>();
+    private static Node buildTree(int inOrder[] , int[] postOrder){
+        //if both the array's length do not match then no need to go further directly return false
+        if(inOrder == null || postOrder == null || inOrder.length != postOrder.length) return null;
 
+        //for making the search easy in Inorder we are using map
+        HashMap<Integer , Integer> map = new HashMap<>();
         for (int i = 0; i < inOrder.length; i++) {
-            inMap.put(inOrder[i],i);
+            map.put(inOrder[i],i);
         }
 
-        Node root = buildTree(preOrder , 0 , preOrder.length-1,
-                              inOrder , 0  , inOrder.length , inMap);
+        return buildTreeInPost(inOrder , 0 , inOrder.length-1,
+                        postOrder , 0 , postOrder.length-1 , map);
+
+    }
+
+    private static Node buildTreeInPost(int inOrder[] , int inStart , int inEnd,
+                                 int postOrder[] , int postStart , int postEnd , HashMap<Integer , Integer> map){
+
+        //if both the array of inOrder and PostOrder gets empty(the starting index becomes greater than the end index)
+        if(postStart > postEnd || inStart > inEnd)  return null;
+
+        Node root = new Node(postOrder[postEnd]);//the last element in the postOrder is always the root (Left,Right,Root)
+
+        int inRoot = map.get(postOrder[postEnd]);//get the index of the root from the Inorder[]
+
+        int numsLeft = inRoot - inStart;//the no. of elements b/w starting and the root in Inorder[]
+
+        //for left subtree
+        root.left = buildTreeInPost(inOrder , inStart , inRoot - 1 ,
+                                    postOrder , postStart , postStart + numsLeft - 1 , map);
+
+        //for right subtree
+        root.right = buildTreeInPost(inOrder , inRoot+1 , inEnd,
+                                     postOrder , numsLeft+postStart , postEnd - 1 , map);
 
         return root;
     }
 
-    static Node buildTree(int[] preOrder ,int preStart , int preEnd ,
-                          int[] inOrder , int inStart , int inEnd , Map<Integer,Integer> inMap){
-
-        if (preStart > preEnd || inStart > inEnd) return null;
-
-        Node root = new Node(preOrder[preStart]);
-        int inRoot = inMap.get(root.data);
-        int numsLeft = inRoot - inStart;
-
-        root.left = buildTree(preOrder, preStart + 1, preStart + numsLeft, inOrder,
-                inStart, inRoot - 1, inMap);
-        root.right = buildTree(preOrder, preStart + numsLeft + 1, preEnd, inOrder,
-                inRoot + 1, inEnd, inMap);
-
-        return root;
-    }
 
 
     public static void main(String[] args) {
-        int preorder[] = {3,9,20,15,7};
-        int inorder[] = {9,3,15,20,7};
+       int inorder[] = {9,3,15,20,7};
+       int postorder[] = {9,15,7,20,3};
 
-        Node root = builtTree(preorder , inorder);
+       Node root =  buildTree(inorder ,postorder);
+
     }
 }
