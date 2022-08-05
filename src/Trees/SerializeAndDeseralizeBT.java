@@ -74,7 +74,7 @@ public class SerializeAndDeseralizeBT {
         System.out.println(result);
 
         Node Root = deserialize(result);
-        //System.out.println(Root.data);
+        System.out.println(Root.data);
 
     }
 }
