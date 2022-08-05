@@ -26,7 +26,7 @@ public class BTfromInorderAndPostOrder {
         }
 
         return buildTreeInPost(inOrder , 0 , inOrder.length-1,
-                        postOrder , 0 , postOrder.length-1 , map);
+                               postOrder , 0 , postOrder.length-1 , map);
 
     }
 
