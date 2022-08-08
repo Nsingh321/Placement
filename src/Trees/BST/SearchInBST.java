@@ -42,8 +42,14 @@ public class SearchInBST {
     1) Left Node < Current Node < Right Node
     2) Left subtree and right subtree is a BST
  */
-        Node ele = searchInBST(root , 12);
-        System.out.println(ele.data);
+        Node ele = searchInBST(root , 24);
+        if(ele == null){
+            System.out.println("null");
+        }
+        else{
+            System.out.println(ele.data);
+        }
+
 
     }
 }
