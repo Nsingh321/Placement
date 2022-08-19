@@ -1,6 +1,5 @@
 package OOPS;
 
-import javax.xml.stream.events.StartDocument;
 
 class Pen{
     //blueprint of a pen
