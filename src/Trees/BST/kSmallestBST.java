@@ -21,7 +21,7 @@ public class kSmallestBST {
     static int result = Integer.MIN_VALUE;
 
 
-   //Due to a property of BST , the inorder is always sorted 
+   //Due to a property of BST , the inorder is always sorted
     static void Inorder(Node root, int k) {
         if(root==null) return;
 
