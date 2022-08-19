@@ -41,14 +41,14 @@ public class DeleteANodeBST {
         return dummy;
     }
 
-
+    //after finding the deleted node we are passing it here
     private static  Node helper(Node root){
         if(root.left == null) return root.right;
         else if(root.right == null) return root.left;
         else{
             Node rightChild = root.right;
-            Node lastRight = findLastChild(root.left);
-            lastRight.right = rightChild;
+            Node lastRight = findLastChild(root.left);//go to the rightmost node of the left subtree
+            lastRight.right = rightChild;//and attach the right to the right of the key
             return root.left;
         }
     }
