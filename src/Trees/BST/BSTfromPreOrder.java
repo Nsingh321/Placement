@@ -21,6 +21,7 @@ public class BSTfromPreOrder {
 
     private static Node bstfromPreOrder(int[] A,int bound , int[] i){
         if(i[0] == A.length || A[i[0]] > bound) return null;
+        System.out.println(i[0]);
 
         Node root = new Node(A[i[0]++]);
         root.left = bstfromPreOrder(A , root.data , i);
